@@ -6,13 +6,6 @@ from quidapi.views import Index
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'quidapi.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
     url(r'^$', Index.as_view(), name='index'),
-
     url(r'^admin/', include(admin.site.urls)),
 )
-
-
-
