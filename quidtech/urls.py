@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from quidapi.views import Index, Games, Teams
+from quidtech.views import Index, Games, Teams
 
 from rest_framework import routers
-from quidapi.api import LeagueViewSet, TeamViewSet
+from quidtech.api import LeagueViewSet, TeamViewSet
 
 admin.autodiscover()
 
