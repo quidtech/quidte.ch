@@ -47,4 +47,4 @@ class Score(models.Model):
     score_type = models.CharField(max_length=1, choices=SCORE_TYPES)
     team       = models.ForeignKey(Team)
     game       = models.ForeignKey(Game)
-    player     = models.ForeignKey(Player)
+    player     = models.ForeignKey(Person)
