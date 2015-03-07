@@ -2,35 +2,13 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from quidapi.views import Index, Games, Teams
 
-from rest_framework import routers, serializers, viewsets
-from data.models import Team, League
+from quidapi.api import LeagueViewSet, TeamViewSet
 
 admin.autodiscover()
 
-class LeagueSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = League
-        fields = ('name', 'code')
-
-class LeagueViewSet(viewsets.ModelViewSet):
-    queryset = League.objects.all()
-    serializer_class = LeagueSerializer
-
-class TeamSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Team
-        fields = ('name',)
-
-class TeamViewSet(viewsets.ModelViewSet):
-    queryset = Team.objects.all()
-    serializer_class = TeamSerializer
-
-# Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'leagues' , LeagueViewSet)
 router.register(r'teams'   , TeamViewSet)
-
-
 
 urlpatterns = patterns('' ,
     url(r'^$'      , Index.as_view() , name='index') ,
