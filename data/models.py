@@ -23,8 +23,8 @@ class Person(models.Model):
 
 class Game(models.Model):
     # teams
-    teamA = models.ForeignKey(Team)
-    teamB = models.ForeignKey(Team)
+    teamA = models.ForeignKey(Team, related_name='gameA')
+    teamB = models.ForeignKey(Team, related_name='gameB')
 
     # their calculated score
     scoreTeamA = models.IntegerField()
@@ -34,12 +34,12 @@ class Game(models.Model):
     duration = models.IntegerField()
 
     # game officials
-    snitchRunner = models.ForeignKey(Person)
+    snitchRunner = models.ForeignKey(Person, related_name='+')
 
-    headReferee       = models.ForeignKey(Person)
-    snitchReferee     = models.ForeignKey(Person)
-    assistantRefereeA = models.ForeignKey(Person)
-    assistantRefereeB = models.ForeignKey(Person)
+    headReferee       = models.ForeignKey(Person, related_name='+')
+    snitchReferee     = models.ForeignKey(Person, related_name='+')
+    assistantRefereeA = models.ForeignKey(Person, related_name='+')
+    assistantRefereeB = models.ForeignKey(Person, related_name='+')
 
 
 class Score(models.Model):
