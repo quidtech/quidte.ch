@@ -24,3 +24,17 @@ class Teams(View):
         context = {}
         context['teams'] = Team.objects.all()
         return render_to_response("teams.html", context)
+
+
+class Timer(View):
+    def get(self, request, *args, **kwargs):
+        context = {}
+        return render_to_response("timer.html", context)
+
+
+class Login(View):
+    def get(self, request, *args, **kwargs):
+        context = {}
+        context.update(csrf(request))
+        return render_to_response("login.html", context)
+

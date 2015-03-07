@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from quidtech.views import Index, Games, Teams
+from quidtech.views import Index, Games, Teams, Timer
 
 from rest_framework import routers
 from quidtech.api import LeagueViewSet, TeamViewSet
@@ -13,6 +13,7 @@ router.register(r'teams'   , TeamViewSet)
 
 urlpatterns = patterns('' ,
     url(r'^$'      , Index.as_view() , name='index') ,
+    url(r'^timer/' , Timer.as_view() , name='timer') ,
     url(r'^games/' , Games.as_view() , name='games') ,
     url(r'^teams/' , Teams.as_view() , name='teams') ,
 )
