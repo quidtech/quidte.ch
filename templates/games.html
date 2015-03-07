@@ -1,0 +1,14 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Games</title>
+
+</head>
+<body>
+	<div>
+		{% for game in games %}
+		<p>{{ game.team_a }} vs. {{ game.team_b }}</p>
+		{% endfor %}
+	</div>
+</body>
+</html>
